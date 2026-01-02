@@ -1,38 +1,22 @@
 
--- CORE TABLES
--- Source: staging tables
--- Purpose: cleaned, analytics-ready LinkedIn data
+DROP TABLE IF EXISTS core_posts;
+CREATE TABLE core_posts (
+    post_id         TEXT PRIMARY KEY,
+    posted_at       TIMESTAMP NOT NULL,
+    post_type       TEXT NOT NULL,
+    topic           TEXT,
+    impressions     INTEGER NOT NULL CHECK (impressions >= 0),
+    likes           INTEGER NOT NULL CHECK (likes >= 0),
+    comments        INTEGER NOT NULL CHECK (comments >= 0),
+    shares          INTEGER NOT NULL CHECK (shares >= 0)
+);
 
--- Core_posts
+DROP TABLE IF EXISTS core_followers;
+CREATE TABLE core_followers (
+    report_date     DATE PRIMARY KEY,
+    followers_count INTEGER NOT NULL CHECK (followers_count >= 0)
+);
 
-TRUNCATE TABLE core_posts;
-
-INSERT INTO core_posts (
-    post_id, post_date, post_type, topic,
-    impressions, likes, comments, shares
-)
-SELECT
-    post_id,
-    post_date,
-    NULLIF(LOWER(TRIM(post_type)), '') AS post_type,
-    NULLIF(TRIM(topic), '') AS topic,
-    COALESCE(impressions, 0) AS impressions,
-    COALESCE(likes, 0)       AS likes,
-    COALESCE(comments, 0)    AS comments,
-    COALESCE(shares, 0)      AS shares
-FROM stg_posts
-WHERE post_id IS NOT NULL
-  AND post_date IS NOT NULL;
-
--- Core_followers_gained
-
-TRUNCATE TABLE core_followers_daily;
-
-INSERT INTO core_followers_daily (
-    report_date, followers_gained
-)
-SELECT
-    date AS report_date,
-    COALESCE(followers_gained, 0)
-FROM stg_followers_daily
-WHERE date IS NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_core_posts_posted_at ON core_posts (posted_at);
+CREATE INDEX IF NOT EXISTS idx_core_posts_topic ON core_posts (topic);
+CREATE INDEX IF NOT EXISTS idx_core_posts_type ON core_posts (post_type);
