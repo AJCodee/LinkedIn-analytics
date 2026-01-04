@@ -1,3 +1,8 @@
+
+-- Staging Tables created
+
+-- stg_pots
+
 DROP TABLE IF EXISTS stg_posts;
 CREATE TABLE stg_posts (
     post_id         TEXT,
@@ -10,6 +15,8 @@ CREATE TABLE stg_posts (
     comments        TEXT,
     shares          TEXT
 );
+
+-- stg_followers
 
 DROP TABLE IF EXISTS stg_followers;
 CREATE TABLE stg_followers (

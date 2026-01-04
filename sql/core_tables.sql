@@ -1,4 +1,8 @@
 
+-- Core Tables created
+
+-- core_posts
+
 DROP TABLE IF EXISTS core_posts;
 CREATE TABLE core_posts (
     post_id         TEXT PRIMARY KEY,
@@ -10,6 +14,8 @@ CREATE TABLE core_posts (
     comments        INTEGER NOT NULL CHECK (comments >= 0),
     shares          INTEGER NOT NULL CHECK (shares >= 0)
 );
+
+-- core_followers
 
 DROP TABLE IF EXISTS core_followers;
 CREATE TABLE core_followers (
