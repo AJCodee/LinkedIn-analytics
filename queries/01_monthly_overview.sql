@@ -22,6 +22,9 @@
 -- 5. This query is intended as a baseline overview,
 --    not a month-over-month comparison
 
+
+-- Monthly post-level aggregation
+
 WITH posts_month AS (
 SELECT
 	COUNT(*) AS total_posts,
@@ -32,12 +35,20 @@ SELECT
 FROM core_posts
 WHERE post_date >= '2025-11-01' AND post_date < '2025-12-01'
 ),
+
+
+-- Monthly follower growth aggregation
+
 followers_month AS (
 SELECT 
 	SUM(followers_gained) AS total_followers
 FROM core_followers_daily
 WHERE report_date >= '2025-11-01' AND report_date < '2025-12-01'
 )
+
+
+-- Final monthly overview with KPIs
+
 SELECT
 	p.total_posts,
 	p.total_impressions,
