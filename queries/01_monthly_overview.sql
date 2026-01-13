@@ -22,7 +22,6 @@
 -- 5. This query is intended as a baseline overview,
 --    not a month-over-month comparison
 
-
 -- Monthly post-level aggregation
 
 WITH posts_month AS (
@@ -36,7 +35,6 @@ FROM core_posts
 WHERE post_date >= '2025-11-01' AND post_date < '2025-12-01'
 ),
 
-
 -- Monthly follower growth aggregation
 
 followers_month AS (
@@ -45,7 +43,6 @@ SELECT
 FROM core_followers_daily
 WHERE report_date >= '2025-11-01' AND report_date < '2025-12-01'
 )
-
 
 -- Final monthly overview with KPIs
 
@@ -58,13 +55,13 @@ SELECT
 	f.total_followers,
 
 	-- KPIs:
--- likes_per_post:
---   Measures average engagement per post.
---   Used to evaluate content quality independent of volume.
---
--- followers_per_post:
---   Measures growth efficiency.
---   Indicates how effectively posts convert activity into followers.
+	-- likes_per_post:
+	--   Measures average engagement per post.
+	--   Used to evaluate content quality independent of volume.
+	--
+	-- followers_per_post:
+	--   Measures growth efficiency.
+	--   Indicates how effectively posts convert activity into followers.
 
 	CASE 
 		WHEN p.total_posts = 0 THEN NULL
