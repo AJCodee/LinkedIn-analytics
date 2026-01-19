@@ -21,34 +21,34 @@
 
 -- Follower count on each day
 
-with daily_base as (
-	select
+WITH daily_base AS (
+	SELECT
     	report_date,
-    	trim(to_char(report_date, 'Day')) as day_of_week,
+    	TRIM(to_char(report_date, 'Day')) AS day_of_week,
     	followers_gained
-  	from core_followers_daily
+  	FROM core_followers_daily
 ),
 
 -- Follower aggregation
 
-most_follower_days as (
-	select 
-		min(followers_gained) as lowest_day,
-		max(followers_gained) as highest_day
-	from daily_base
+most_follower_days AS (
+	SELECT 
+		MIN(followers_gained) AS lowest_day,
+		MAX(followers_gained) AS highest_day
+	FROM daily_base
 ),
 
 -- Follower avg aggregation
 
-daily_average as (
-	select 
-		avg(followers_gained) as avg_followers
-	from daily_base
+daily_average AS (
+	SELECT 
+		AVG(followers_gained) AS avg_followers
+	FROM daily_base
 )
 
 -- Final followers per day overview with KPIs
 
-select
+SELECT
 	d.report_date,
 	d.day_of_week,
 	d.followers_gained,
@@ -61,17 +61,17 @@ select
     --  Compares each day against the average.
     --  Indicates how often followers gained was above average.
 
-	case
-		when d.followers_gained = m.highest_day then 'Highest day'
-		when d.followers_gained = m.lowest_day then 'Lowest day'
-		else null 
-	end as highlight,
-	case
-		when d.followers_gained is null then 'No data'
-		when d.followers_gained > a.avg_followers then 'Above average'
-		when d.followers_gained < a.avg_followers then 'Below average'
-	end	as avg_each_day
-from daily_base d
-cross join most_follower_days m
-cross join daily_average a
-order by d.report_date 
+	CASE
+		WHEN d.followers_gained = m.highest_day THEN 'Highest day'
+		WHEN d.followers_gained = m.lowest_day THEN 'Lowest day'
+		ELSE NULL 
+	END AS highlight,
+	CASE
+		WHEN d.followers_gained IS NULL THEN 'No data'
+		WHEN d.followers_gained > a.avg_followers THEN 'Above average'
+		WHEN d.followers_gained < a.avg_followers THEN 'Below average'
+	END AS ach_day
+FROM daily_base d
+CROSS JOIN most_follower_days m
+CROSS JOIN daily_average a
+ORDER BY d.report_date 
