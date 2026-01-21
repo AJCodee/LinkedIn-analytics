@@ -21,6 +21,6 @@
 
 - Topic “Junior Dev” dominated visibility, generating 71.49% of all impressions in November — roughly 2.5× more than all other topics combined.
 
-## Query 04: Post Type Effectiveness
+## Query 04: Top Post Per Topic
 
 ## Query 05: Posting Activity vs Followers
