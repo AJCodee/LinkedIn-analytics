@@ -23,4 +23,10 @@
 
 ## Query 04: Top Post Per Topic
 
+- This query returns the highest-impression post within each topic, allowing a fair “best example” comparison across topics.
+
+- The top Junior Dev post generated 150,694 impressions, making it the highest-reach post across all topic leaders.
+
+- Compared to the next best topic leader (Motivation, 35,879 impressions), the Junior Dev top post achieved 4.2x higher reach, suggesting Junior Dev content has the strongest potential for visibility.
+
 ## Query 05: Posting Activity vs Followers
