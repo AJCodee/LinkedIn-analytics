@@ -67,3 +67,15 @@ Daily follower growth metrics:
 - staging_tables.sql
 
 ## Key Questions & Insights
+
+Key Questions
+
+- Monthly overview: what was overall performance in November?
+- Daily follower growth: which days gained the most followers?
+- Topic performance: which topics performed best by reach and engagement rate?
+- Top post per topic: what was the best post in each topic?
+- Posting vs followers: does posting activity relate to follower growth?
+
+Insights
+
+- See outputs/insights.md for findings and summary.
