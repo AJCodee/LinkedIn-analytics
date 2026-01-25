@@ -20,7 +20,7 @@ CREATE TABLE core_posts (
 DROP TABLE IF EXISTS core_followers;
 CREATE TABLE core_followers (
     report_date     DATE PRIMARY KEY,
-    followers_count INTEGER NOT NULL CHECK (followers_count >= 0)
+    followers_gained INTEGER NOT NULL CHECK (followers_gained >= 0)
 );
 
 CREATE INDEX IF NOT EXISTS idx_core_posts_posted_at ON core_posts (posted_at);
