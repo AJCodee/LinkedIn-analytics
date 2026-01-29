@@ -71,7 +71,7 @@ Daily follower growth metrics:
 Key Questions
 
 - Monthly overview: what was overall performance in November?
-- Daily follower growth: which days gained the most followers?
+- Daily follower growth: which days gained the most followers (Highest / Lowest)?
 - Topic performance: which topics performed best by reach and engagement rate?
 - Top post per topic: what was the best post in each topic?
 - Posting vs followers: does posting activity relate to follower growth?
