@@ -30,3 +30,9 @@
 - Compared to the next best topic leader (Motivation, 35,879 impressions), the Junior Dev top post achieved 4.2x higher reach, suggesting Junior Dev content has the strongest potential for visibility.
 
 ## Query 05: Posting Activity vs Followers
+
+- This query groups days by total impressions (low, medium, high) to examine whether higher reach aligns with increased follower growth.
+
+- While the single highest-impression day (150k+) did not produce the highest follower gain, days classified as high impressions consistently show stronger follower growth compared to low-impression or no-post days.
+
+- Days with no posting activity generated noticeably lower follower gains, suggesting that visibility (reach) plays a more meaningful role than posting frequency alone.
